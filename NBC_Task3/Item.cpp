@@ -7,6 +7,12 @@ Item::Item(string name, int price)
 	itemType = ItemType::None;
 }
 
+Item::Item(Item* original)
+{
+	name = original->name;
+	price = original->price;
+}
+
 string Item::GetName() const
 {
 	return name;

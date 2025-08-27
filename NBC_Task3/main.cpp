@@ -24,21 +24,21 @@ int main()
 		switch (select)
 		{
 		case 1:
-			myInven->AddItem(WeaponItem("나무 대검", 1000, 80));
+			myInven->AddItem(new WeaponItem("나무 대검", 1000, 80));
 			break;
 		case 2:
-			myInven->AddItem(WeaponItem("장식용 한손검", 1000, 120));
-			myInven->AddItem(WeaponItem("냄비 뚜껑", 500, 200));
+			myInven->AddItem(new WeaponItem("장식용 한손검", 1000, 120));
+			myInven->AddItem(new WeaponItem("냄비 뚜껑", 500, 200));
 			break;
 		case 3:
-			myInven->AddItem(WeaponItem("연습용 쌍검", 1000, 100));
+			myInven->AddItem(new WeaponItem("연습용 쌍검", 1000, 100));
 			break;
 		case 4:
-			myInven->AddItem(WeaponItem("합판 해머", 1000, 70));
+			myInven->AddItem(new WeaponItem("합판 해머", 1000, 70));
 			break;
 		case 5:
-			myInven->AddItem(WeaponItem("훈련용 활", 1000, 50));
-			myInven->AddItem(ConsumeItem("둥근 촉 화살", 1, 100));
+			myInven->AddItem(new WeaponItem("훈련용 활", 1000, 50));
+			myInven->AddItem(new ConsumeItem("둥근 촉 화살", 1, 100));
 			break;
 		default:
 			cout << "\n잘못 입력했습니다. 다시 해주세요.";
@@ -62,22 +62,22 @@ int main()
 		cin >> select;
 		if (select >= 1 && select <= 4)
 		{
-			stack<Item> supportItems;
+			stack<Item*> supportItems;
 			switch (select)
 			{
 			case 1:
-				supportItems.push(ConsumeItem("투척용 쿠나이", 100, 5));
-				supportItems.push(ConsumeItem("나무통 폭탄", 2000, 2));
-				supportItems.push(ConsumeItem("귀인의 가루", 500, 2));
-				supportItems.push(ConsumeItem("경화의 가루", 500, 2));
-				supportItems.push(ConsumeItem("마비덫", 1000, 1));
+				supportItems.push(new ConsumeItem("투척용 쿠나이", 100, 5));
+				supportItems.push(new ConsumeItem("나무통 폭탄", 2000, 2));
+				supportItems.push(new ConsumeItem("귀인의 가루", 500, 2));
+				supportItems.push(new ConsumeItem("경화의 가루", 500, 2));
+				supportItems.push(new ConsumeItem("마비덫", 1000, 1));
 			case 2:
-				supportItems.push(ConsumeItem("휴대식량", 500, 3));
-				supportItems.push(ConsumeItem("모닥불용 장작", 400, 10));
-				supportItems.push(WeaponItem("채집용 칼", 500, 20));
+				supportItems.push(new ConsumeItem("휴대식량", 500, 3));
+				supportItems.push(new ConsumeItem("모닥불용 장작", 400, 10));
+				supportItems.push(new WeaponItem("채집용 칼", 500, 20));
 			case 3:
-				supportItems.push(ConsumeItem("HP 포션(소)", 100, 10));
-				supportItems.push(ConsumeItem("MP 포션(소)", 100, 10));
+				supportItems.push(new ConsumeItem("HP 포션(소)", 100, 10));
+				supportItems.push(new ConsumeItem("MP 포션(소)", 100, 10));
 			default:
 				break;
 			}

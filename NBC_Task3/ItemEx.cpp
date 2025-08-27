@@ -8,6 +8,12 @@ WeaponItem::WeaponItem(string name, int price, int durability) : Item(name, pric
 	itemType = ItemType::Weapon;
 }
 
+WeaponItem::WeaponItem(WeaponItem* original) : Item(original)
+{
+	durability = original->durability;
+	itemType = ItemType::Weapon;
+}
+
 int WeaponItem::GetDurability()
 {
 	return durability;
@@ -30,6 +36,12 @@ void WeaponItem::AddDurability(int value)
 ConsumeItem::ConsumeItem(string name, int price, int count) : Item(name, price)
 {
 	this->count = count;
+	itemType = ItemType::Consume;
+}
+
+ConsumeItem::ConsumeItem(ConsumeItem* original) : Item(original)
+{
+	count = original->count;
 	itemType = ItemType::Consume;
 }
 
