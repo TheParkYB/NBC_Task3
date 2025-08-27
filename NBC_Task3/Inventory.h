@@ -143,16 +143,17 @@ public:
 		T** newItemArr = new T*[newCapacity] {nullptr, };
 
 		//주소 옮기기
-		for (int iNum = 0; iNum < size_; iNum++)
+		int minValue = min(size_, newCapacity);
+		for (int iNum = 0; iNum < minValue; iNum++)
 			newItemArr[iNum] = pItems_[iNum];
 
 		//기존보다 크기가 작아질때 접근이 불가능한 아이템이 생기면 삭제한다.
-		if (size_ > capacity_)
+		if (size_ > newCapacity)
 		{
-			for (int iNum = size_; iNum < capacity_; iNum++)
+			for (int iNum = newCapacity; iNum < size_; iNum++)
 				delete pItems_[iNum];
 
-			size_ = capacity_;
+			size_ = newCapacity;
 		}
 
 		//새 배열을 사용
